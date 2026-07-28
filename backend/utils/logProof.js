@@ -12,7 +12,7 @@ async function logActivity(action, details) {
   try {
     const log = new ActivityLog({ action, details });
     await log.save();
-    console.log(`[ACTIVITY LOG] ${action}: ${details}`);
+
     return log;
   } catch (err) {
     console.error("Failed to save activity log:", err);
