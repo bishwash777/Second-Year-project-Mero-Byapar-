@@ -16,14 +16,7 @@ mongoose
   .then(() => console.log("MongoDB (inventory) connected successfully"))
   .catch((err) => console.log("MongoDB connection failed:", err));
 
-// Newsletter DB (can also use the same DB if you want)
-mongoose
-  .connect("mongodb://127.0.0.1:27017/newsletterDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB (newsletter) connected successfully"))
-  .catch((err) => console.log("Newsletter MongoDB connection failed:", err));
+// Removed duplicate MongoDB connection; newsletter data will use the same inventory DB.
 
 // --- Load Models ---
 require("./model/Store");
@@ -35,6 +28,7 @@ require("./model/Purchase");
 require("./model/PurchaseItem");
 require("./model/Sale");
 require("./model/SaleItem");
+require("./model/ActivityLog");
 
 // --- Load Routes ---
 const authRoutes = require("./routes/authRoutes");
